@@ -1,16 +1,100 @@
-# React + Vite
+# 🎬 Movie Recommendation App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern movie discovery application built with React, Vite, Appwrite, and TMDB API. Users can browse popular movies, search for specific titles, and view trending searches powered by Appwrite.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Search movies in real time
+* Browse popular movies
+* Trending movies section
+* Appwrite backend integration
+* Responsive user interface
+* Fast performance with Vite
+* Modern React Hooks implementation
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
 
-## Expanding the ESLint configuration
+* React.js
+* Vite
+* Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+
+* Appwrite
+
+### API
+
+* TMDB (The Movie Database)
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/
+│   ├── MovieCard.jsx
+│   ├── Search.jsx
+│   └── Spinner.jsx
+├── assets/
+├── App.jsx
+├── appwrite.js
+├── main.jsx
+└── index.css
+
+public/
+├── hero.png
+├── hero-bg.png
+├── search.svg
+├── star.svg
+└── no-movie.png
+```
+
+## ⚙️ Environment Variables
+
+Create a `.env.local` file in the project root and add:
+
+```env
+VITE_TMDB_API_KEY=YOUR_TMDB_READ_ACCESS_TOKEN
+VITE_APPWRITE_ENDPOINT=YOUR_APPWRITE_ENDPOINT
+VITE_APPWRITE_PROJECT_ID=YOUR_PROJECT_ID
+VITE_APPWRITE_DATABASE_ID=YOUR_DATABASE_ID
+VITE_APPWRITE_COLLECTION_ID=YOUR_COLLECTION_ID
+```
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/shek-malik-basha/Movie-Recommendation.git
+```
+
+Navigate to the project folder:
+
+```bash
+cd movie-recommendation
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+## 🌐 API Reference
+
+This project uses The Movie Database (TMDB) API for movie information and Appwrite for storing trending search data.
+
+
+## 👨‍💻 Author
+
+**Shek Malik Basha**
+
+GitHub: https://github.com/shek-malik-basha
