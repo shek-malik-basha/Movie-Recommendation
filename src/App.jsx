@@ -8,7 +8,7 @@ import { getTrendingMovies, updateSearchCount, client } from './appwrite.js'
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-
+console.log("TMDB KEY:", API_KEY);
 const API_OPTIONS = {
   method: 'GET',
   headers: {
@@ -60,12 +60,11 @@ const App = () => {
         await updateSearchCount(query, data.results[0]);
       }
     } catch (error) {
-      console.error(`Error fetching movies: ${error}`);
-      setErrorMessage('Error fetching movies. Please try again later.');
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  console.error("APPWRITE ERROR:", error);
+} finally {
+  setIsLoading(false);
+}
+  };
 
   const loadTrendingMovies = async () => {
     try {
@@ -81,18 +80,11 @@ const App = () => {
     fetchMovies(debouncedSearchTerm);
   }, [debouncedSearchTerm]);
 
-  useEffect(() => {
-    loadTrendingMovies();
+ useEffect(() => {
+   loadTrendingMovies();
   }, []);
 
-  // Verify Appwrite connection on app startup
-  useEffect(() => {
-    client.ping().then(() => {
-      console.log('✅ Appwrite connection verified');
-    }).catch((error) => {
-      console.error('❌ Failed to connect to Appwrite:', error);
-    });
-  }, []);
+
 
   return (
     <main>

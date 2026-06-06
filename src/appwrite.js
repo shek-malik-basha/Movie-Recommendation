@@ -1,29 +1,19 @@
-import { Client, Account, Databases, ID, Query } from 'appwrite'
+import { Client, Databases, ID, Query } from 'appwrite'
 
-const ENDPOINT = import.meta.env.VITE_APPWRITE_ENDPOINT;
 const PROJECT_ID = import.meta.env.VITE_APPWRITE_PROJECT_ID;
 const DATABASE_ID = import.meta.env.VITE_APPWRITE_DATABASE_ID;
 const COLLECTION_ID = import.meta.env.VITE_APPWRITE_COLLECTION_ID;
 
-console.log("ENDPOINT:", ENDPOINT);
 console.log("PROJECT_ID:", PROJECT_ID);
 console.log("DATABASE_ID:", DATABASE_ID);
 console.log("COLLECTION_ID:", COLLECTION_ID);
 
-const client = new Client();
+const client = new Client()
+  .setEndpoint('https://fra.cloud.appwrite.io/v1')
+  .setProject(PROJECT_ID)
 
-client.setEndpoint(ENDPOINT);
-client.setProject(PROJECT_ID);
-
-const account = new Account(client);
 const databases = new Databases(client);
 
-// Ping the Appwrite backend to verify setup
-client.call(() => {
-  console.log('Appwrite connection verified');
-}).catch(error => {
-  console.error('Failed to connect to Appwrite:', error);
-});
 
 export const updateSearchCount = async (searchTerm, movie) => {
   // 1. Use Appwrite SDK to check if the search term exists in the database
@@ -59,11 +49,11 @@ export const getTrendingMovies = async () => {
     Query.limit(5),
     Query.orderDesc("count")
   ])
-
+console.log("Trending result:", result);
   return result.documents;
  } catch (error) {
   console.error(error);
  }
 }
 
-export { client, account, databases };
+export { client, databases };
