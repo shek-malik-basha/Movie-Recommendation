@@ -2,6 +2,9 @@
 
 A modern movie discovery application built with React, Vite, Appwrite, and TMDB API. Users can browse popular movies, search for specific titles, and view trending searches powered by Appwrite.
 
+Live Demo:
+https://movie-recommendation-frr5lkyjn-shek-malik-bashas-projects.vercel.app/
+
 ## 🚀 Features
 
 * Search movies in real time
